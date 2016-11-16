@@ -54,8 +54,8 @@ class Data(object):
     def add_stats_to_groups(self, groups):
         for group in groups:
             groups[group]['count'] = len(groups[group]['logs'])
-            groups[group]['avg_per_min'] = groups[group]['count'] / 5
-            groups[group]['avg_per_second'] = groups[group]['count'] / (5 * 60)
+            groups[group]['avg_per_min'] = groups[group]['count'] / self.interval
+            groups[group]['avg_per_second'] = groups[group]['count'] / (self.interval * 60)
         return groups
 
     def get_data(self):
